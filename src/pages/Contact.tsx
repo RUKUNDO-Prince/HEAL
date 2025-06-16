@@ -14,7 +14,7 @@ const Contact = () => {
       <div className="pt-16">
         <ContactForm />
         <ContactSection />
-        <LocationsSection />
+        {/* <LocationsSection /> */}
         <FAQSection />
       </div>
       <Footer />
