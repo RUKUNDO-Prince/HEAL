@@ -24,7 +24,7 @@ const PartnersSection = () => {
       category: 'Technology Partners',
       icon: Building,
       color: 'green',
-      partners: ['MTN Rwanda', 'Airtel Rwanda', 'Digital Health Solutions', 'Innovation Hubs']
+      partners: ['Babyl Rwanda', 'HealthConnect Rwanda', 'Digital Health Solutions', 'Innovation Hubs']
     },
     {
       category: 'Community Organizations',
