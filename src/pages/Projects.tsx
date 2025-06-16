@@ -14,8 +14,8 @@ const Projects = () => {
       <div className="pt-16">
         <ProjectsSection />
         <ProjectDetailsSection />
-        <TechnologySection />
-        <ImpactMetricsSection />
+        {/* <TechnologySection /> */}
+        {/* <ImpactMetricsSection /> */}
       </div>
       <Footer />
     </div>
