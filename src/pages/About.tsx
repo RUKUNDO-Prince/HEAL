@@ -13,9 +13,9 @@ const About = () => {
       <Navigation />
       <div className="pt-16">
         <AboutSection />
-        <TeamSection />
-        <TimelineSection />
-        <CareersSection />
+        {/* <TeamSection /> */}
+        {/* <TimelineSection /> */}
+        {/* <CareersSection /> */}
       </div>
       <Footer />
     </div>
