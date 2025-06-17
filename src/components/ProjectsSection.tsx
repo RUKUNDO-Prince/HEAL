@@ -1,9 +1,10 @@
 
 import React from 'react';
-import { Heart, Brain, Stethoscope, School, Users, Phone, CheckCircle } from 'lucide-react';
+import { Heart, Brain, Stethoscope, School, Users, Phone, CheckCircle, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 
 const ProjectsSection = () => {
   const { t } = useLanguage();
@@ -16,6 +17,7 @@ const ProjectsSection = () => {
       featuresKey: 'projects.firstaid.features',
       color: 'red',
       bgGradient: 'from-red-500 to-pink-500',
+      webLink: 'https://firstaid.heal.rw',
       features: [
         'School partnerships with Red Cross',
         'Professional community training',
@@ -30,6 +32,7 @@ const ProjectsSection = () => {
       featuresKey: 'projects.mental.features',
       color: 'blue',
       bgGradient: 'from-blue-500 to-indigo-500',
+      webLink: 'https://mentalhealth.heal.rw',
       features: [
         'Web & mobile platform',
         'Offline support',
@@ -44,6 +47,7 @@ const ProjectsSection = () => {
       featuresKey: 'projects.telehealth.features',
       color: 'green',
       bgGradient: 'from-green-500 to-emerald-500',
+      webLink: 'https://telehealth.heal.rw',
       features: [
         'Symptom assessment',
         'Doctor consultations',
@@ -94,10 +98,25 @@ const ProjectsSection = () => {
                     </div>
                   </div>
                   
-                  <div className="mt-6 pt-4 border-t border-gray-100">
+                  <div className="mt-6 pt-4 border-t border-gray-100 space-y-3">
                     <Badge variant="secondary" className={`bg-${project.color}-50 text-${project.color}-700 hover:bg-${project.color}-100`}>
                       Web, Mobile & Offline
                     </Badge>
+                    
+                    <Button 
+                      asChild
+                      className={`w-full bg-gradient-to-r ${project.bgGradient} hover:opacity-90 text-white`}
+                    >
+                      <a 
+                        href={project.webLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2"
+                      >
+                        Visit Platform
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
+                    </Button>
                   </div>
                 </CardContent>
               </Card>

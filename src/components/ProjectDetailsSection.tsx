@@ -1,9 +1,10 @@
 
 import React from 'react';
-import { Heart, Brain, Stethoscope, Users, School, Smartphone, Wifi, Globe } from 'lucide-react';
+import { Heart, Brain, Stethoscope, Users, School, Smartphone, Wifi, Globe, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Button } from '@/components/ui/button';
 
 const ProjectDetailsSection = () => {
   const { t } = useLanguage();
@@ -12,6 +13,7 @@ const ProjectDetailsSection = () => {
     firstaid: {
       icon: Heart,
       color: 'red',
+      webLink: 'https://firstaid.heal.rw',
       features: [
         { icon: School, title: 'School Integration', desc: 'Curriculum integration in 500+ schools nationwide' },
         { icon: Users, title: 'Community Training', desc: 'Professional trainers in health centers and communities' },
@@ -24,6 +26,7 @@ const ProjectDetailsSection = () => {
     mental: {
       icon: Brain,
       color: 'blue',
+      webLink: 'https://mentalhealth.heal.rw',
       features: [
         { icon: Users, title: 'Peer Support', desc: 'Community-based peer counseling networks' },
         { icon: Smartphone, title: 'Digital Platform', desc: 'Secure, anonymous mental health support' },
@@ -36,6 +39,7 @@ const ProjectDetailsSection = () => {
     telehealth: {
       icon: Stethoscope,
       color: 'green',
+      webLink: 'https://telehealth.heal.rw',
       features: [
         { icon: Smartphone, title: 'USSD Integration', desc: 'Healthcare access via basic mobile phones' },
         { icon: Users, title: 'Doctor Network', desc: '200+ healthcare professionals available' },
@@ -78,6 +82,26 @@ const ProjectDetailsSection = () => {
 
           {Object.entries(projectDetails).map(([key, project]) => (
             <TabsContent key={key} value={key} className="space-y-12">
+              {/* Platform Access Button */}
+              <div className="text-center">
+                <Button 
+                  asChild
+                  size="lg"
+                  className={`bg-${project.color}-600 hover:bg-${project.color}-700 text-white px-8 py-4`}
+                >
+                  <a 
+                    href={project.webLink} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3"
+                  >
+                    <project.icon className="h-5 w-5" />
+                    Access Platform
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                </Button>
+              </div>
+
               {/* Features Grid */}
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {project.features.map((feature, index) => {
@@ -106,7 +130,22 @@ const ProjectDetailsSection = () => {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-700 leading-relaxed">{project.implementation}</p>
+                    <p className="text-gray-700 leading-relaxed mb-6">{project.implementation}</p>
+                    <Button 
+                      asChild
+                      variant="outline"
+                      className={`border-${project.color}-200 text-${project.color}-700 hover:bg-${project.color}-50`}
+                    >
+                      <a 
+                        href={project.webLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                      >
+                        Learn More
+                        <ExternalLink className="h-4 w-4" />
+                      </a>
+                    </Button>
                   </CardContent>
                 </Card>
 
